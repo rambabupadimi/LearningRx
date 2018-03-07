@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">LearningRx</string>
+    <string name="do_login">Login</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="username_mandatory">username mandatory</string>
+    <string name="password_manadatory">password mandatory</string>
+    <string name="name">name</string>
+    <string name="email">email</string>
+    <string name="phone">phone</string>
+    <string name="name_is_mandatory">name is mandatory</string>
+    <string name="email_is_mandatory">email is mandatory</string>
+    <string name="phone_is_mandatory">phone is mandaotry</string>
+    <string name="phone_number_must_be_10_digits">phone number must be 10 digits</string>
+    <string name="password_is_mandatory">password is mandatory</string>
+</resources>
