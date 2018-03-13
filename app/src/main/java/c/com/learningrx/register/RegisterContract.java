@@ -18,9 +18,10 @@ public class RegisterContract {
         void setEmptyMessageForRegisterEmail(@StringRes int resId);
         void setEmptyMessageForReisterPhone(@StringRes int resId);
         void setEmptyMessageForRegisterPassword(@StringRes int resId);
-
         void setRegisterPhoneTenDigits(@StringRes int resId);
         void setRegisterPasswordEightDigits(@StringRes int resId);
+
+        void redirectToHomePage();
     }
   public   interface Presenter
     {

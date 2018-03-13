@@ -13,10 +13,12 @@ public class RegisterPresenter implements RegisterContract.Presenter {
 
     RegisterContract.View view;
 
+
     RegisterRepository registerRepository;
-    public RegisterPresenter(RegisterContract.View view)
+    public RegisterPresenter(RegisterContract.View view,RegisterRepository registerRepository)
     {
         this.view = view;
+        this.registerRepository = registerRepository;
     }
     @Override
     public void clickOnRegisterButton() {
@@ -39,7 +41,7 @@ public class RegisterPresenter implements RegisterContract.Presenter {
             view.setEmptyMessageForReisterPhone(R.string.phone_is_mandatory);
             return;
         }
-        if(phone.toString().length()>10 || phone.toString().length()<10)
+        if( phone.toString().length()<10)
         {
             view.setRegisterPhoneTenDigits(R.string.phone_number_must_be_10_digits);
             return;
@@ -51,7 +53,20 @@ public class RegisterPresenter implements RegisterContract.Presenter {
             return;
         }
 
-        registerRepository.registerUser(new Register(name,email,password,phone,getId()));
+        if(password.toString().length()<8)
+        {
+            view.setRegisterPasswordEightDigits(R.string.password_length);
+        }
+
+        register(new Register(name,email,password,phone,getId()) );
+
+    }
+
+
+    private void register(Register register)
+    {
+        registerRepository.registerUser(register);
+        view.redirectToHomePage();
     }
 
     private String getId()

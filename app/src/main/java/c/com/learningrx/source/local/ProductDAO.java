@@ -5,22 +5,21 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import c.com.learningrx.source.Register;
+import c.com.learningrx.source.Product;
 
 /**
- * Created by Ramu on 25-11-2017.
+ * Created by PCCS-0007 on 13-Mar-18.
  */
-
 @Dao
-public interface RegisterDAO {
+public interface ProductDAO {
 
-    @Query("SELECT * FROM register")
-    List<Register> getRegisterUsers();
+    @Query("SELECT * FROM Product")
+    List<Product> getAllProducts();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertUser(Register register);
-
+    void insertProduct(Product product);
 
 }

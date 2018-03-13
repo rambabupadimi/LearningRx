@@ -1,5 +1,6 @@
 package c.com.learningrx.register;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import c.com.learningrx.R;
+import c.com.learningrx.addproducts.ProductsActivity;
+import c.com.learningrx.source.RegisterRepository;
+import c.com.learningrx.source.local.RegisterDatabase;
+import c.com.learningrx.source.local.RegisterLocalDatasource;
+import c.com.learningrx.source.remote.RegisterRemoteDatasource;
+import c.com.learningrx.util.AppExecutors;
 
 /**
  * Created by Ramu on 27-10-2017.
@@ -41,7 +48,12 @@ public class RegisterFragment extends Fragment implements
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        regsiterPresenter   =   new RegisterPresenter(this);
+        RegisterDatabase database = RegisterDatabase.getInstance(getContext());
+        RegisterRepository registerRepository = RegisterRepository.getInstance(
+                RegisterLocalDatasource.getInstance(new AppExecutors(),
+                        database.registerDAO(),
+                        database.productDAO()),RegisterRemoteDatasource.getInstance());
+        regsiterPresenter   =   new RegisterPresenter(this,registerRepository);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +109,13 @@ public class RegisterFragment extends Fragment implements
     @Override
     public void setRegisterPasswordEightDigits(int resId) {
         registerPassword.setText(getString(resId));
+    }
+
+    @Override
+    public void redirectToHomePage() {
+        Intent intent = new Intent(getContext(), ProductsActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
 
