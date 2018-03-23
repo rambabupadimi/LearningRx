@@ -2,6 +2,8 @@ package c.com.learningrx.addproducts;
 
 import android.support.annotation.StringRes;
 
+import c.com.learningrx.source.Product;
+
 /**
  * Created by PCCS-0007 on 13-Mar-18.
  */
@@ -25,6 +27,7 @@ public class ProductsContract {
     public interface Presenter
     {
        void saveProduct();
+       void saveProductItem(Product product);
        void editProduct();
        void deleteProduct();
     }

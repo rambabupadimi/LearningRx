@@ -8,6 +8,7 @@ import c.com.learningrx.R;
 import c.com.learningrx.register.RegisterContract;
 import c.com.learningrx.register.RegisterPresenter;
 import c.com.learningrx.source.Register;
+import c.com.learningrx.source.RegisterRepository;
 
 /**
  * Created by Ramu on 11-11-2017.
@@ -16,11 +17,13 @@ import c.com.learningrx.source.Register;
 public class RegisterPresenterTest {
         private RegisterContract.View view;
         private RegisterContract.Presenter presenter;
+        private RegisterRepository registerRepository;
         @Before
         public void setUp() throws Exception
         {
             view        =   Mockito.mock(RegisterContract.View.class);
-            presenter   =   new RegisterPresenter(view);
+            registerRepository = Mockito.mock(RegisterRepository.class);
+            presenter   =   new RegisterPresenter(view,registerRepository);
 
         }
 

@@ -52,6 +52,11 @@ public class ProductsPresenter implements ProductsContract.Presenter{
 
     }
 
+    @Override
+    public void saveProductItem(Product product) {
+        saveProductRepository(product);
+    }
+
     private void saveProductRepository(Product product)
     {
             registerRepository.saveProduct(product);
