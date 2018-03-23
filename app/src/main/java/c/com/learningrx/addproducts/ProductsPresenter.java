@@ -11,8 +11,6 @@ public class ProductsPresenter implements ProductsContract.Presenter{
 
 
     ProductsContract.View view;
-
-
     RegisterRepository registerRepository;
     public ProductsPresenter(ProductsContract.View view,RegisterRepository registerRepository)
     {
