@@ -1,5 +1,8 @@
 package c.com.learningrx.source;
 
+import android.support.annotation.NonNull;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,13 +11,16 @@ import java.util.List;
 
 public interface RegisterDataSource {
 
-    interface  LoadRegisterCallback
-    {
-        void onRegisterUsersLoaded(List<Register> users);
+    void registerUser(Register register);
+
+    void saveProduct(Product product);
+
+    interface LoadTasksCallback {
+
+        void onTasksLoaded(List<Product> tasks);
+
         void onDataNotAvailable();
     }
+    void getTasks(@NonNull LoadTasksCallback callback);
 
-    void registerUser(Register register);
-    void getAllUsers(LoadRegisterCallback callback);
-    void deleteUsers();
 }
