@@ -13,4 +13,7 @@
     <string name="phone_is_mandatory">phone is mandaotry</string>
     <string name="phone_number_must_be_10_digits">phone number must be 10 digits</string>
     <string name="password_is_mandatory">password is mandatory</string>
+
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
 </resources>

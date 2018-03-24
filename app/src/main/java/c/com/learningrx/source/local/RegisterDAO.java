@@ -20,7 +20,7 @@ public interface RegisterDAO {
     List<Register> getRegisterUsers();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    Void insertUser(Register register);
+    void insertUser(Register register);
 
 
 }
