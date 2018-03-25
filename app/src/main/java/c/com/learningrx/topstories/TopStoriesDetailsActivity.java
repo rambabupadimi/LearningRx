@@ -1,8 +1,5 @@
 package c.com.learningrx.topstories;
 
-import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -14,12 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,7 +74,7 @@ public class TopStoriesDetailsActivity extends AppCompatActivity {
                 ContextCompat.getColor(this, R.color.colorAccent)), "ALL");
         adapter.addFrag(new TopStoriesCouponsFragment(
                 ContextCompat.getColor(this, R.color.colorPrimary)), "COUPONS");
-        adapter.addFrag(new TopStoriesDeailsFragment(
+        adapter.addFrag(new TopStoriesDealsFragment(
                 ContextCompat.getColor(this, R.color.colorPrimaryDark)), "DEALS");
         viewPager.setAdapter(adapter);
     }
@@ -131,23 +124,5 @@ public class TopStoriesDetailsActivity extends AppCompatActivity {
         }
     }
 
-    public static class DummyFragment extends Fragment {
-        int color;
 
-        public DummyFragment() {
-        }
-
-        @SuppressLint("ValidFragment")
-        public DummyFragment(int color) {
-            this.color = color;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View view = inflater.inflate(R.layout.dummy_fragment, container, false);
-
-
-            return view;
-        }
-    }
 }

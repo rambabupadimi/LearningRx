@@ -52,12 +52,12 @@ public class ProductsFragment extends Fragment implements ProductsContract.View{
     }
     private void initialiseIDs(View view)
     {
-        productName =   view.findViewById(R.id.product_name);
-        productDescription  =   view.findViewById(R.id.product_description);
-        productPrice        =   view.findViewById(R.id.product_price);
-        productQuantity  =   view.findViewById(R.id.product_quantity);
+        productName = (EditText) view.findViewById(R.id.product_name);
+        productDescription  = (EditText) view.findViewById(R.id.product_description);
+        productPrice        = (EditText) view.findViewById(R.id.product_price);
+        productQuantity  = (EditText) view.findViewById(R.id.product_quantity);
 
-        productSave     =   view.findViewById(R.id.product_save);
+        productSave     = (Button) view.findViewById(R.id.product_save);
     }
 
     private void initialiseClickListeners()

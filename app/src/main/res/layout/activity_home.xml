@@ -18,31 +18,81 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/htab_collapse_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:layout_height="286dp"
+                android:fitsSystemWindows="true"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+                app:titleEnabled="false"
+                app:statusBarScrim="@color/colorWhite"
+                android:background="@color/colorWhite"
                 >
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ss.com.bannerslider.views.BannerSlider
+                        android:id="@+id/banner_slider1"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        app:animateIndicators="true"
+                        app:defaultIndicators="circle"
+                        app:interval="0"
+                        app:loopSlides="true"
+                        android:nestedScrollingEnabled="false"
+                        />
+
+
+                </LinearLayout>
+
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/htab_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/colorPrimary"
+                    android:layout_gravity="top"
+                    android:layout_marginBottom="48dp"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/filter_icon"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="24dp"/>
+                    </RelativeLayout>
+                </android.support.v7.widget.Toolbar>
+
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/htab_tabs"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Ecommerce App"
-                    android:textColor="#ffffff"
-                    android:textSize="16sp"/>
+                    android:layout_gravity="bottom"
+                    app:tabIndicatorColor="@color/colorPrimary"
+                    app:tabSelectedTextColor="@color/colorPrimary"
+                    app:tabTextColor="@color/colorPrimary"/>
 
-
-            </android.support.v7.widget.Toolbar>
+            </android.support.design.widget.CollapsingToolbarLayout>
 
 
 
         </android.support.design.widget.AppBarLayout>
 
-        <include layout="@layout/activity_group"
+        <android.support.v4.view.ViewPager
+            android:id="@+id/htab_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
-            />
+
     </android.support.design.widget.CoordinatorLayout>
 
     <android.support.design.widget.NavigationView

@@ -75,8 +75,8 @@ public class ViewProductFragment extends Fragment implements ViewProductContract
     }
     private void initialiseIDs(View view)
     {
-        recyclerView = view.findViewById(R.id.recyclerview);
-        addProduct  =   view.findViewById(R.id.add_product);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
+        addProduct  = (Button) view.findViewById(R.id.add_product);
     }
 
     @Override

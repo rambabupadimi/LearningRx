@@ -14,6 +14,13 @@
     <string name="phone_number_must_be_10_digits">phone number must be 10 digits</string>
     <string name="password_is_mandatory">password is mandatory</string>
 
+
+
     <string name="drawer_open">open</string>
     <string name="drawer_close">close</string>
+    <string name="product_description_is_mandatory">product des</string>
+    <string name="product_quantity_is_mandatory">product quantity</string>
+    <string name="product_price_is_mandatory">product price</string>
+    <string name="password_length">product length</string>
+    <string name="product_name_is_mandatory">product name</string>
 </resources>

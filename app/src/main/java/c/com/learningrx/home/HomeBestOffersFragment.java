@@ -1,4 +1,4 @@
-package c.com.learningrx.topstories;
+package c.com.learningrx.home;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -15,30 +15,27 @@ import c.com.learningrx.R;
  * Created by Ramu on 24-03-2018.
  */
 
-public class TopStoriesCouponsFragment extends Fragment{
-
+public class HomeBestOffersFragment extends Fragment {
 
     int color;
     RecyclerView recyclerView;
-    TopStoriesCouponsAdapter topStoriesCouponsAdapter;
-    public TopStoriesCouponsFragment()
+    HomeBestOffersAdapter homeBestOffersAdapter;
+    public HomeBestOffersFragment()
     {
 
     }
     @SuppressLint("ValidFragment")
-    public TopStoriesCouponsFragment(int color) {
+    public HomeBestOffersFragment(int color) {
         this.color = color;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.top_stories_coupons, container, false);
-
-        recyclerView = (RecyclerView) view.findViewById(R.id.top_stories_coupons_fragment_recyclerview);
+        View view = inflater.inflate(R.layout.home_best_offers_fragment, container, false);
+        homeBestOffersAdapter    =   new HomeBestOffersAdapter(getContext());
+        recyclerView = (RecyclerView) view.findViewById(R.id.home_best_offers_fragment_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        topStoriesCouponsAdapter = new TopStoriesCouponsAdapter(getContext());
-        recyclerView.setAdapter(topStoriesCouponsAdapter);
-
+        recyclerView.setAdapter(homeBestOffersAdapter);
         return view;
     }
 }
